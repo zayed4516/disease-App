@@ -11,16 +11,17 @@ st.title("predict diabetes")
 
 
 #inputs
-Pregnancies = st.number_input('Pregnancies' , min_value=0.0 , max_value=500.0,value=0.01)
-Glucose = st.number_input('Glucose' , min_value=0.0 , max_value=500.0,value=0.01)
-BloodPressure = st.number_input('BloodPressure' , min_value=0.0 , max_value=500.0,value=0.01)
-SkinThickness = st.number_input('SkinThickness' , min_value=0.0 , max_value=500.0,value=0.01)
-Insulin = st.number_input('Insulin' , min_value=0.0 , max_value=500.0,value=0.01)
-BMI = st.number_input('BMI' , min_value=0.0 , max_value=500.0,value=0.01)
-DiabetesPedigreeFunction = st.number_input('DiabetesPedigreeFunction' , min_value=0.0 , max_value=500.0,value=0.01)
-Age = st.number_input('Age' , min_value=0.0 , max_value=500.0,value=0.01)
+Pregnancies = st.number_input('Pregnancies' , min_value=0.0 , max_value=10.0,value=.01)
+Glucose = st.number_input('Glucose' , min_value=0.0 , max_value=10.0,value=.01)
+BloodPressure = st.number_input('BloodPressure' , min_value=0.0 , max_value=100.0,value=0.01)
+SkinThickness = st.number_input('SkinThickness' , min_value=0.0 , max_value=100.0,value=0.01)
+Insulin =  st.number_input('Insulin' , min_value=0.0 , max_value=100.0,value=.01)
+BMI =  st.number_input('BMI' , min_value=0.0 , max_value=100.0,value=.01)
+DiabetesPedigreeFunction =  st.number_input('DiabetesPedigreeFunction' , min_value=0.0 , max_value=100.0,value=.01)
+Age =  st.number_input('Age' , min_value=0.0 , max_value=100.0,value=.01)
+
 
 output = model.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
 
 #display the result
-st.write("the predict CO2 of car is : ",output[0])
+st.write("the predict diabetes : ",output[0])
