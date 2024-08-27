@@ -3,19 +3,24 @@ import streamlit as st
 import pickle
 
 # load pkl file
-with open('model.pkl', 'rb') as file:
+with open('disease.pkl', 'rb') as file:
     model = pickle.load(file)
 
 #title the page
-st.title("predict the CO2 EMISSIONS of car")
+st.title("predict diabetes")
 
 
 #inputs
-engine_size = st.number_input('Engine Size' , min_value=0.0 , max_value=10.0,value=1.0)
-cylinder = st.number_input('Cylinder' , min_value=0.0 , max_value=10.0,value=1.0)
-fuel_consumption =  st.number_input('Fuel Consumption' , min_value=0.0 , max_value=100.0,value=1.0)
+Pregnancies = st.number_input('Pregnancies' , min_value=0.0 , max_value=500.0,value=0.01)
+Glucose = st.number_input('Glucose' , min_value=0.0 , max_value=500.0,value=0.01)
+BloodPressure = st.number_input('BloodPressure' , min_value=0.0 , max_value=500.0,value=0.01)
+SkinThickness = st.number_input('SkinThickness' , min_value=0.0 , max_value=500.0,value=0.01)
+Insulin = st.number_input('Insulin' , min_value=0.0 , max_value=500.0,value=0.01)
+BMI = st.number_input('BMI' , min_value=0.0 , max_value=500.0,value=0.01)
+DiabetesPedigreeFunction = st.number_input('DiabetesPedigreeFunction' , min_value=0.0 , max_value=500.0,value=0.01)
+Age = st.number_input('Age' , min_value=0.0 , max_value=500.0,value=0.01)
 
-output = model.predict([[engine_size,cylinder,fuel_consumption]])
+output = model.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age]])
 
 #display the result
 st.write("the predict CO2 of car is : ",output[0])
