@@ -27,9 +27,13 @@ Age = st.number_input('Age', min_value=0, max_value=120, value=30)
 # Prediction
 if st.button('Predict'):
     input_features = [[Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]]
-    prediction = model.predict(input_features)
-    
-    # Display the result
-    result = "Diabetes likely" if prediction[0] == 1 else "No diabetes"
-    st.write(f"Prediction: {result}")
+
+    try:
+        prediction = model.predict(input_features)
+        # Display the result
+        result = "Diabetes likely" if prediction[0] == 1 else "No diabetes"
+        st.write(f"Prediction: {result}")
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
+
 
